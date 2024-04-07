@@ -40,7 +40,9 @@ namespace C01.SqlQuery.Data
 
             var connectionnString = configuration.GetSection("constr").Value;
 
-            optionsBuilder.UseSqlServer(connectionnString);
+            optionsBuilder
+                .UseSqlServer(connectionnString)
+                .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
 
         }
 
